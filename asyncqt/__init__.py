@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 
 try:
-    QtModuleName = os.environ['QT_API']
+    QtModuleName = {'pyqt5': 'PyQt5', 'pyside2': 'PySide2'}.get(os.environ['QT_API'].lower(), os.environ['QT_API'])
 except KeyError:
     QtModule = None
 else:
